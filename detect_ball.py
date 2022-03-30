@@ -8,7 +8,7 @@ cap = cv2.VideoCapture(0)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
-ball_size = 0.075  # cm (diameter)
+ball_size = 0.075  # m (diameter)
 ball_objp = np.array([[ball_size/2,0,0],
                   [0,ball_size/2,0],
                   [ball_size,ball_size/2,0],
@@ -24,13 +24,13 @@ print(mtx)
 print(dist)
 
 
-enable_offset = True
+enable_offset = False
 #===================== OFFSET ====================#
 if(enable_offset):
-    head_down_angle = 15
-    x_offset = 0.40
-    y_offset = -1.05
-    z_offset = 0.58
+    head_down_angle = 15  # degrees
+    x_offset = 0.40  # meter
+    y_offset = -1.05  # meter
+    z_offset = 0.58  # meter
     s = np.sin(np.radians(-head_down_angle-90))
     c = np.cos(np.radians(-head_down_angle-90))
     roll = np.array([[1, 0, 0, 0],
